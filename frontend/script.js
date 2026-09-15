@@ -32,9 +32,15 @@ document.addEventListener('DOMContentLoaded', () => {
         data.campaign = parseInt(data.campaign, 10);
         data.duration = parseFloat(data.duration);
 
+        // Configuration: Update this URL to your Render deployment URL when deployed
+        // e.g., const API_BASE_URL = 'https://your-app-name.onrender.com';
+        const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:'
+            ? 'http://localhost:5000'
+            : 'https://your-backend-app.onrender.com'; // <-- CHANGE THIS TO YOUR RENDER URL
+
         try {
             // Send request to Flask API
-            const response = await fetch('http://localhost:5000/predict', {
+            const response = await fetch(`${API_BASE_URL}/predict`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
