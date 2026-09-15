@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // e.g., const API_BASE_URL = 'https://your-app-name.onrender.com';
         const API_BASE_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:'
             ? 'http://localhost:5000'
-            : 'https://your-backend-app.onrender.com'; // <-- CHANGE THIS TO YOUR RENDER URL
+            : 'https://optimizing-customer-response-prediction.onrender.com'; // <-- CHANGE THIS TO YOUR RENDER URL
 
         try {
             // Send request to Flask API
