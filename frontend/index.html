@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Marketing Predictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-shapes">
+        <div class="shape shape-1"></div>
+        <div class="shape shape-2"></div>
+        <div class="shape shape-3"></div>
+    </div>
+
+    <div class="container">
+        <div class="glass-card">
+            <header>
+                <h1>AI Campaign Predictor</h1>
+                <p>Predict whether a customer will subscribe to a term deposit.</p>
+            </header>
+
+            <form id="prediction-form">
+                <div class="form-grid">
+                    <!-- Required Fields -->
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age" required min="18" max="100" placeholder="e.g. 35">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="balance">Account Balance (€)</label>
+                        <input type="number" id="balance" name="balance" required placeholder="e.g. 1500">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="job">Job</label>
+                        <select id="job" name="job" required>
+                            <option value="admin.">Admin</option>
+                            <option value="blue-collar">Blue-collar</option>
+                            <option value="entrepreneur">Entrepreneur</option>
+                            <option value="housemaid">Housemaid</option>
+                            <option value="management">Management</option>
+                            <option value="retired">Retired</option>
+                            <option value="self-employed">Self-employed</option>
+                            <option value="services">Services</option>
+                            <option value="student">Student</option>
+                            <option value="technician">Technician</option>
+                            <option value="unemployed">Unemployed</option>
+                            <option value="unknown">Unknown</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="campaign">Number of Contacts</label>
+                        <input type="number" id="campaign" name="campaign" required min="1" placeholder="During this campaign">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="duration">Last Contact Duration (sec)</label>
+                        <input type="number" id="duration" name="duration" required min="0" placeholder="e.g. 250">
+                    </div>
+
+                    <!-- Optional Fields -->
+                    <div class="form-group">
+                        <label for="marital">Marital Status</label>
+                        <select id="marital" name="marital">
+                            <option value="married">Married</option>
+                            <option value="single">Single</option>
+                            <option value="divorced">Divorced</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="education">Education</label>
+                        <select id="education" name="education">
+                            <option value="primary">Primary</option>
+                            <option value="secondary">Secondary</option>
+                            <option value="tertiary">Tertiary</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="housing">Housing Loan</label>
+                        <select id="housing" name="housing">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" id="submit-btn">
+                    <span class="btn-text">Generate Prediction</span>
+                    <div class="spinner"></div>
+                </button>
+            </form>
+
+            <div id="result-container" class="hidden">
+                <div class="result-header">
+                    <h2>Prediction Result</h2>
+                </div>
+                <div class="result-content">
+                    <div class="score-circle">
+                        <svg>
+                            <circle cx="50" cy="50" r="45"></circle>
+                            <circle class="progress" cx="50" cy="50" r="45"></circle>
+                        </svg>
+                        <div class="score-text">
+                            <span id="probability-value">0%</span>
+                        </div>
+                    </div>
+                    <div class="decision-badge" id="decision-badge">
+                        Target
+                    </div>
+                </div>
+            </div>
+            
+            <div id="error-container" class="hidden error">
+                <p id="error-message"></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

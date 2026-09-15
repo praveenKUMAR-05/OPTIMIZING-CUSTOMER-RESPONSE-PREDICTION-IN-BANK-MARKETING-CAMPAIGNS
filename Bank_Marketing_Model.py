@@ -8,6 +8,7 @@ from xgboost import XGBClassifier, plot_importance
 import joblib
 import matplotlib.pyplot as plt
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 from prometheus_client import start_http_server, Counter
 import logging
 from sklearn.compose import ColumnTransformer
@@ -104,6 +105,7 @@ def train_model(df):
 # 3. DEPLOYMENT API
 # ---------------------------
 app = Flask(__name__)
+CORS(app)
 model = None
 API_REQUESTS = Counter('api_requests_total', 'Total API calls')
 PREDICTION_SCORE = Counter('prediction_score_sum', 'Sum of prediction scores')
